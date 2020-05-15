@@ -14,6 +14,7 @@ import Error from "components/Appointment/Error";
 import Confirm from "components/Appointment/Confirm";
 import Show from "components/Appointment/Show";
 import Status from "components/Appointment/Status";
+import Form from "components/Appointment/Form";
 
 import Button from "components/Button";
 
@@ -167,4 +168,36 @@ storiesOf("Button", module)
              message="Could not delete appointment."
              onClose={action('onClose')}
              />
-           ));
+             ))
+           .add("Form Edit", () => (
+             <Form
+             name="Lydia Miller-Jones"
+             interviewers={interviewers}
+             interviewer={interviewer.id}
+             onCancel={action('onCancel')}
+             onSave={action('onSave')}
+             />
+           ))
+           .add("Form Create", () => (
+             <Form
+             interviewers={interviewers}
+             onCancel={action('onCancel')}
+             onSave={action('onSave')}
+             />
+           ))
+           .add("Appointment Empty", () => (
+            <Fragment>
+              <Appointment id={1} time="12pm" />
+              <Appointment id="last" time="1pm" />
+            </Fragment>
+          ))
+          .add("Appointment Booked", () => (
+            <Fragment>
+              <Appointment
+                id={1}
+                time="12pm"
+                interview={{ student: "Lydia Miller-Jones", interviewer }}
+              />
+              <Appointment id="last" time="1pm" />
+            </Fragment>
+          )); 
