@@ -7,6 +7,13 @@ import DayList from "components/DayList";
 import InterviewerList from "components/InterviewerList";
 import InterviewerListItem from "components/InterviewerListItem";
 import "index.scss";
+import Appointment from "components/Appointment/index";
+import Header from "components/Appointment/Header";
+import Empty from "components/Appointment/Empty";
+import Error from "components/Appointment/Error";
+import Confirm from "components/Appointment/Confirm";
+import Show from "components/Appointment/Show";
+import Status from "components/Appointment/Status";
 
 import Button from "components/Button";
 
@@ -25,15 +32,15 @@ storiesOf("Button", module)
       Disabled
     </Button>
   ));
-  storiesOf("DayListItem", module) //Initiates Storybook and registers our DayListItem component
+  storiesOf("DayListItem", module) 
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
-  }) // Provides the default background color for our component
-  .add("Unselected", () => <DayListItem name="Monday" spots={5} />) // To define our stories, we call add() once for each of our test states to generate a story
+  }) 
+  .add("Unselected", () => <DayListItem name="Monday" spots={5} />) 
   .add("Selected", () => <DayListItem name="Monday" spots={5} selected />) 
   .add("Full", () => <DayListItem name="Monday" spots={0} />)
   .add("Clickable", () => (
-    <DayListItem name="Tuesday" setDay={action("setDay")} spots={5} /> // action() allows us to create a callback that appears in the actions panel when clicked
+    <DayListItem name="Tuesday" setDay={action("setDay")} spots={5} /> 
   ));
 
   const days = [
@@ -123,3 +130,41 @@ storiesOf("Button", module)
             setInterviewer={action("setInterviewer")}
           />
         )); 
+        storiesOf("Appointment", module)
+          .addParameters({
+            backgrounds: [{ name: "white", value: "#fff", default: true }]
+        })
+          .add("Appointment", () => <Appointment />)
+          .add("Appointment with Time", () => <Appointment time="12pm" />)
+          .add("Header", () => <Header time="12pm" />)
+          .add("Empty", () => (
+           <Empty
+           onAdd={action('onAdd')}
+           />
+          ))
+          .add("Show", () => (
+            <Show
+            student="Lydia Miller-Jones"
+            name={interviewer.name}
+            onEdit={action('onEdit')}
+            onDelete={action('onDelete')}
+            />
+          ))
+           .add("Confirm", () => (
+             <Confirm
+             message="Delete the appointment?"
+             onConfirm={action('onConfirm')}
+             onCancel={action('onCancel')}
+             />
+           ))
+           .add("Status", () => (
+             <Status
+             message="Deleting"
+             />
+           ))
+           .add("Error", () => (
+             <Error
+             message="Could not delete appointment."
+             onClose={action('onClose')}
+             />
+           ));
