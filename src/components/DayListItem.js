@@ -3,19 +3,19 @@ import "components/DayListItem.scss";
 const classNames = require('classnames');
 
 export default function DayListItem(props) {
-  const dayListItem = classNames({
-    'day-list__item': true, 
-    'day-list__item--selected': props.selected,
-    'day-list__item--full': props.spots === 0
-  });
-  const formatSpots = function() {
-   if (props.spots >= 2 ){
-   return `${props.spots} spots remaining`
+  const dayClass = classNames("day-list__item", {
+    "day-list__item--selected": props.selected,
+    "day-list__item--full": props.spots === 0
+  })
+
+  const formatSpots = function(spotsNb) {
+   if (spotsNb >= 2 ){
+   return `${spotsNb} spots remaining`
    }
-   else if(props.spots === 1){
+   else if(spotsNb === 1){
      return '1 spot remaining'
    }
-   else if (props.spots === 0){
+   else if (spotsNb === 0){
     return 'no spots remaining'
   } 
 }
