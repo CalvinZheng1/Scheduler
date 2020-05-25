@@ -1,11 +1,11 @@
 # Interview Scheduler
 This is a single-page app built on React.js that allows users to book, edit or cancel interviews for each day of the week (Monday to Friday).
 
-## Final Product
-
 ## Main Screen
+!["Main Screen"](https://github.com/CalvinZheng1/Scheduler/blob/master/docs/mainscreen.png)
 
 ## Editing Screen
+!["Edit Screen"](https://github.com/CalvinZheng1/Scheduler/blob/master/docs/edit.png)
 
 ## Setup
 
