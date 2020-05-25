@@ -11,13 +11,13 @@ export default function Form(props) {
   const reset = () => {
     setName("");
     setInterviewer(null);
-  }
+  };
 
   // Call reset and the back function from the Appointments component (index)
   const cancel = () => {
     reset();
     props.onCancel();
-  }
+  };
 
   // Check if the form has been filled correctly before saving the data
   const validate = () => {
@@ -36,15 +36,15 @@ export default function Form(props) {
   return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
-       <form autoComplete="off" onSubmit={event => event.preventDefault()}>
-         <input
-           className="appointment__create-input text--semi-bold"
-           name="name"
-           type="text"
-           placeholder="Enter Student Name"
-           value={name}
-           onChange={(event) => setName(event.target.value)}
-           data-testid="student-name-input"
+        <form autoComplete="off" onSubmit={event => event.preventDefault()}>
+          <input
+            className="appointment__create-input text--semi-bold"
+            name="name"
+            type="text"
+            placeholder="Enter Student Name"
+            value={name}
+            onChange={event => setName(event.target.value)}
+            data-testid="student-name-input"
           />
           <section className="appointment__validation">{error}</section>
         </form>
@@ -61,5 +61,5 @@ export default function Form(props) {
         </section>
       </section>
     </main>
-    )
-  } 
+  )
+} 

@@ -94,18 +94,18 @@ export default function Appointment(props) {
           interviewers={props.interviewers}
           onCancel = {back}
           onSave = {save}
-          />
-          )}
-          {mode === ERROR_SAVE && (
-            <Error 
-              message="Unable to save"
-              onClose={back}
-            />
-          )}
-          {mode === ERROR_DELETE && (
-            <Error 
-              message="Unable to delete"
-              onClose={back}
+        />
+      )}
+      {mode === ERROR_SAVE && (
+        <Error 
+          message="Unable to save"
+          onClose={back}
+        />
+      )}
+      {mode === ERROR_DELETE && (
+        <Error 
+          message="Unable to delete"
+          onClose={back}
         />
       )}
     </article>

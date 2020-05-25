@@ -13,13 +13,6 @@ describe("Application", () => {
     await waitForElement(() => getByText("Monday"));
     fireEvent.click(getByText("Tuesday"));
     expect(getByText("Leopold Silvers")).toBeInTheDocument();
-
-    // Same block as above but with a promise instead of async/await
-    // return waitForElement(() => getByText("Monday")).then(() => {
-    //   fireEvent.click(getByText("Tuesday"));
-    //   expect(getByText("Leopold Silvers")).toBeInTheDocument();
-    // });
-
   });
 
   it("load data, books an interview and reduces the spots remaining for the first day by 1", async () => {

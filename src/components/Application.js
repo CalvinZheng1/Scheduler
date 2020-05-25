@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import DayList from "./DayList";
 import Appointment from "./Appointment";
 import useApplicationData from "../hooks/useApplicationData";
@@ -16,7 +16,7 @@ export default function Application(props) {
 
   const appointments = getAppointmentsForDay(state, state.day);
   const interviewers = getInterviewersForDay(state, state.day);
-  
+
   const schedule = appointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
     return (
@@ -48,13 +48,13 @@ export default function Application(props) {
         />
       </nav>
       
-<img
-  className="sidebar__lhl sidebar--centered"
-  src="images/lhl.png"
-  alt="Lighthouse Labs"
-  />
-  </section>
-  <section className="schedule">
+      <img
+        className="sidebar__lhl sidebar--centered"
+        src="images/lhl.png"
+        alt="Lighthouse Labs"
+      />
+      </section>
+      <section className="schedule">
         {schedule}
         <Appointment key="last" time="5pm" />
       </section>

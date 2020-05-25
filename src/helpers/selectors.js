@@ -28,6 +28,6 @@ function getInterview(state, interview) {
     return { ...interview, interviewer };
   }
   return null;
-}
+};
 
 export { getAppointmentsForDay, getInterview, getInterviewersForDay };

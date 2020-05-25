@@ -10,9 +10,10 @@ export default function useApplicationData(initial) {
     appointments: {},
     interviewers: {}
   });
-  
+// Switch to a new day  
   const setDay = day => dispatch({ type: SET_DAY, day});
-
+  
+// Add the new interview in the appointments state and make the PUT request
   const bookInterview = (id, interview) => {
     const appointment = {
       ...state.appointments[id],
